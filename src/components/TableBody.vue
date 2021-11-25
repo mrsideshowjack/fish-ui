@@ -6,7 +6,8 @@
     </colgroup>
     <tbody>
     <template v-for="(item, rowIndex) in rows">
-      <tr :key="rowIndex" @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''">
+      <div :key="rowIndex">
+      <tr  @click="trClick(item, rowIndex)" :class="hasCounting(rowIndex) ? 'count' : ''">
         <td v-if="expandedRowRender" style="text-align: center;"><i :class="expandIcon" @click.stop="expandHandler(rowIndex)"></i></td>
         <td v-for="column in columns" :style="{'text-align': column.align || 'left'}" :key="column.key">
           <div v-if="'index' === column.type">{{ hasCounting(rowIndex) ? '' : (rowIndex + 1) }}</div>
@@ -16,11 +17,12 @@
           <content-render :render="column.render || ((h, item, column, rowIndex) => h('div', itemValue(item, column)))" :params="[item, column, rowIndex]" v-else></content-render>
         </td>
       </tr>
-      <tr :key="rowIndex" v-if="expandedRowRender && expands[rowIndex]">
+      <tr  v-if="expandedRowRender && expands[rowIndex]">
         <td :colspan="columns.length + 1">
           <content-render :render="expandedRowRender" :params="[item]"></content-render>
         </td>
       </tr>
+      </div>
     </template>
     <tr v-if="rows.length <= 0 && noMoreText">
       <td class="no-more" :colspan="columns.length">{{ noMoreText }}</td>
