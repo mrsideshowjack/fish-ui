@@ -10,8 +10,8 @@
   </div>
 </template>
 <script>
-  import clickoutside from '../directives/clickoutside'
-  import fishMenu from './Menu'
+  import clickoutside from '../directives/clickoutside.js'
+  import fishMenu from './Menu.vue'
   export default {
     components: {fishMenu},
     directives: { clickoutside },

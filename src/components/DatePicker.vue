@@ -18,9 +18,9 @@
 </template>
 <script>
   import moment from 'moment'
-  import clickoutside from '../directives/clickoutside'
+  import clickoutside from '../directives/clickoutside.js'
   import fishCalendar from './Calendar.vue'
-  import { notify, calendar } from '../config'
+  import { notify, calendar } from '../config.js'
 
   const formats = {
     year: 'YYYY',

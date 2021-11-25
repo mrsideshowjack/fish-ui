@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-  import { notify } from '../config'
+  import { notify } from '../config.js'
   export default {
     name: 'fish-input',
     props: {

@@ -8,17 +8,17 @@
     <i class="fa fa-times-circle" style="opacity: .6;" @click.stop="clearHandler" v-if="showClear && !valueEmpty"></i>
     <i class="fa fa-calendar" v-else></i>
     <div v-if="visible" class="content" :style="{width: `${(62 + 2) * groups.length}px`}">
-      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
+      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups" :key="groupIndex">
         <li :class="['item', {'active': item === (value.split(':')[groupIndex] || '00')}]"
             @click.stop="selectHandler(item, groupIndex)"
-            v-for="item in group">{{ item }}</li>
+            v-for="(item, index) in group" :key="index">{{ item }}</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-  import clickoutside from '../directives/clickoutside'
-  import { calendar, notify } from '../config'
+  import clickoutside from '../directives/clickoutside.js'
+  import { calendar, notify } from '../config.js'
   export default {
     name: 'fish-time-picker',
     directives: { clickoutside },

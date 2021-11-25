@@ -43,8 +43,8 @@
   </div>
 </template>
 <script>
-  import clickoutside from '../directives/clickoutside'
-  import { notify } from '../config'
+  import clickoutside from '../directives/clickoutside.js'
+  import { notify } from '../config.js'
   export default {
     name: 'fish-select',
     directives: { clickoutside },

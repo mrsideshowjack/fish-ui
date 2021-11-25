@@ -2,11 +2,13 @@
   <div class="fish calendar" v-if="current.year">
     <div class="header">
       <a :class="['prev', {'disabled': state === 'year'}]" @click.stop.prevent="pageHandler(-1)"><i class="fa fa-chevron-left"></i></a>
-      <template v-for="(mode, index) in modes" v-if="modeIndex >= index">
+      <template v-for="(mode, index) in modes">
+        <template v-if="modeIndex >= index">
         <a :class="mode" @click.stop="showItemsHandler(mode)" :key="index">
           {{ mode === 'month' ? current[mode] + 1 : current[mode] }}
         </a>
         {{index < modeIndex ? (index <= 1 ? '-' : index === 2 ? ' ' : index <= 4 ? ':' : '') : ''}}
+        </template>
       </template>
       <!--<a class="reset" @click.stop="todayHandler" v-html="today" v-if="mode === 'day'"></a>-->
       <a :class="['next', {'disabled': state === 'year'}]" @click.stop="pageHandler(1)"><i class="fa fa-chevron-right"></i></a>
@@ -39,7 +41,7 @@
 </template>
 <script>
   import moment from 'moment'
-  import { calendar } from '../config'
+  import { calendar } from '../config.js'
   import ContentRender from './ContentRender.vue'
 
   export default {

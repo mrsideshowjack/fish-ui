@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-  import fishTag from './Tag'
+  import fishTag from './Tag.vue'
   export default {
     name: 'fish-tags',
     components: {

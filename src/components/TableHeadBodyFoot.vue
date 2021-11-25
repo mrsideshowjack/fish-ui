@@ -1,7 +1,7 @@
 <template>
   <table :style="{'table-layout': type === 'full' ? 'auto' : 'fixed'}">
     <colgroup>
-      <col v-for="column in columns" :width="column.width"/>
+      <col v-for="(column, index) in columns" :width="column.width" :key="index"/>
       <col v-if="type === 'head' && scrollY" width="15"/>
     </colgroup>
     <fish-table-head :rows="rows" :scrollY="scrollY"

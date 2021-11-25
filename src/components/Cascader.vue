@@ -11,7 +11,7 @@
     </div>
     <div v-show="visible" class="content" :style="{width: `${(menuWidth + 2) * groups.length + 15 * groups.length}px`}"
          @click.stop="" @mouseover.stop="" @mouseout.stop="">
-      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups">
+      <ul class="fish menu vertical" v-for="(group, groupIndex) in groups" :key="groupIndex">
         <li :class="['item', {'active': selectedItems[groupIndex] && selectedItems[groupIndex][0] === item[0], 'submenu': itemChildren(item).length > 0}]"
             v-for="(item, index) in group" @click.stop="itemClickHandler(item, groupIndex)" :key="item[0]" :style="{width: `${menuWidth}px`}">
           {{ item[1] }}
@@ -21,8 +21,8 @@
   </div>
 </template>
 <script>
-  import clickoutside from '../directives/clickoutside'
-  import { notify } from '../config'
+  import clickoutside from '../directives/clickoutside.js'
+  import { notify } from '../config.js'
   export default {
     name: 'fish-cascader',
     directives: { clickoutside },

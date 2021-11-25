@@ -9,7 +9,7 @@
   </li>
 </template>
 <script>
-  import clickoutside from '../directives/clickoutside'
+  import clickoutside from '../directives/clickoutside.js'
   export default {
     directives: { clickoutside },
     name: 'fish-submenu',

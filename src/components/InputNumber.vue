@@ -17,7 +17,7 @@
 </template>
 <script>
   const maxInteger = 1000000000000.00
-  import { notify } from '../config'
+  import { notify } from '../config.js'
 
   const add = (v1, v2) => {
     v1 *= maxInteger

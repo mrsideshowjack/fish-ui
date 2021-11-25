@@ -39,7 +39,7 @@
 <script>
   import ajax from './ajax.js'
   import fishModal from './Modal.vue'
-  import { notify } from '../config'
+  import { notify } from '../config.js'
 
   export default {
     components: {fishModal},
